@@ -47,11 +47,11 @@ export default {
     font-weight: 700;
   }
   .friend-card {
-    color: #4183cc;
+    color: #d13030;
   }
 
   .foe-card {
-    color: #d13030;
+    color: #4183cc;
   }
 
   .neutral-card, .assassin-card {

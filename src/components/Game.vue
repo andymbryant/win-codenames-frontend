@@ -1,5 +1,6 @@
 <template>
   <div class='game-ctr'>
+    <h1>You are the Spymaster for the <span class="red-text">Red Team</span></h1>
     <Board/>
   </div>
 </template>
@@ -33,7 +34,11 @@ export default {
 
 <style>
   .game-ctr {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .red-text {
+    color: #d13030;
+    font-weight: 700;
   }
 </style>
