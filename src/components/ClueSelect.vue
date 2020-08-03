@@ -3,9 +3,14 @@
     <div class="clues-ctr">
       <div class='clue-select-text'>What's the best clue?</div>
       <div class='clue' v-for="clue in clues" :key="clue.id">
-        <label for="selectedClue">{{clue.word}}</label>
-        <input type="radio" v-model="selectedClue" name="selectedClue" :value="clue.word">
+        <label :for="clue.word">{{clue.word}}</label>
+        <input type="radio" v-model="selectedClue" :name="clue.word" :value="clue.word">
       </div>
+      <div class='clue all_bad'>
+        <label for="all_bad">I don't like any of these.</label>
+        <input type="radio" v-model="selectedClue" name="all_bad" value="Terrible Job">
+      </div>
+
       <!-- <Clue v-for="clue in clues" :word="clue.word" :key="clue.id"/> -->
     </div>
     <div class='clue-text-ctr'>
@@ -67,6 +72,9 @@ export default {
     border: 1px solid grey;
     justify-content: space-between;
     align-items: center;
+  }
+  .all_bad {
+    background-color: rgb(231, 231, 231);
   }
   .clue-text-ctr {
     position: relative;
