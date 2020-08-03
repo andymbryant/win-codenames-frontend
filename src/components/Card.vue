@@ -1,6 +1,7 @@
 <template>
   <div :class="cardContainerClass">
     <div :class="cardTextClass">{{word}}</div>
+    <font-awesome-icon class="top-friend-icon" v-if="isTop" icon="check-circle"/>
   </div>
 </template>
 
@@ -9,7 +10,8 @@ export default {
   name: "Card",
   props: {
     word: String,
-    type: String
+    type: String,
+    isTop: Boolean
   },
   computed: {
     cardContainerClass() {
@@ -37,6 +39,7 @@ export default {
     height: 90px;
     line-height: 90px;
     text-align: center;
+    position: relative;
     background-color: #e8e8e8;
   }
   .card-text {
@@ -61,5 +64,11 @@ export default {
     background-color: rgb(182, 182, 182);
   }
 
+  .top-friend-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: green;
+  }
 
 </style>

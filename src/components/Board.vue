@@ -1,6 +1,6 @@
 <template>
   <div class="board-ctr">
-    <Card v-for="card in cards" :word="card.word" :type="card.type" :key="card.word"></Card>
+    <Card v-for="word in words" :word="word.word" :type="word.type" :isTop="word.is_top" :key="word.id"></Card>
   </div>
 </template>
 
@@ -13,11 +13,8 @@ export default {
     Card
   },
   computed: {
-    ...mapGetters(['cards', 'spymaster'])
+    ...mapGetters(['words'])
   },
-  mounted() {
-    console.log(this.cards)
-  }
 }
 </script>
 
@@ -29,6 +26,5 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
   }
 </style>

@@ -1,18 +1,27 @@
 <template>
-  <div class='game-ctr'>
-    <h1>You are the Spymaster for the <span class="red-text">Red Team</span></h1>
-    <Board/>
+  <Loader v-if="isAppLoading"></Loader>
+  <div v-else class='game-ctr'>
+    <div class='title-ctr'>
+      <div class='game-title'>You are the Spymaster for the <span class="red-text">Red Team</span>.</div>
+      <div class='game-subtitle'>You want you team to guess the words with the <span class="green-text">green</span> checkmarks.</div>
+    </div>
+    <Board v-if="!loading"/>
+    <ClueSelect v-if="!loading"/>
   </div>
 </template>
 
 <script>
+import Loader from '@/components/Loader'
 import Board from '@/components/Board'
-import {mapActions} from 'vuex'
+import ClueSelect from '@/components/ClueSelect'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: 'Game',
   components: {
-    Board
+    Loader,
+    Board,
+    ClueSelect
   },
   data() {
     return {
@@ -20,13 +29,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchGameData'])
+    ...mapActions(['fetchGameData', 'fetchClueData'])
+  },
+  computed: {
+    ...mapGetters(['clueId', 'clues', 'isAppLoading'])
   },
   created() {
     this.loading = true
   },
   mounted() {
     this.fetchGameData()
+      // .then(() => this.fetchClueData({clueId: this.clueId}))
       .then(() => this.loading = false)
   }
 }
@@ -34,11 +47,30 @@ export default {
 
 <style>
   .game-ctr {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .title-ctr {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .game-title {
+    font-size: 1.5rem;
+    height: 40px;
+    margin-top: 1rem;
+    font-weight: 500;
   }
   .red-text {
     color: #d13030;
     font-weight: 700;
+  }
+  .green-text {
+    color: green;
+    font-weight: 700;
+  }
+  .main-ctr {
+    display: flex;
+    flex-direction: column;
   }
 </style>

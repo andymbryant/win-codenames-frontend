@@ -6,6 +6,7 @@
 
 <style >
 #app {
+  font-family: 'Roboto';
   width: 100%;
   height: 100%;
 }
