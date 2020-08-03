@@ -11,7 +11,6 @@
         <input type="radio" v-model="selectedClue" name="all_bad" value="no_good_clues">
       </div>
 
-      <!-- <Clue v-for="clue in clues" :word="clue.word" :key="clue.id"/> -->
     </div>
     <div class='clue-text-ctr'>
       <div class="clue-text">{{selectedClue}}</div>
@@ -22,7 +21,6 @@
 </template>
 
 <script>
-// import Clue from '@/components/Clue'
 import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'ClueSelect',

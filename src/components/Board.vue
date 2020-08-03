@@ -1,6 +1,13 @@
 <template>
   <div class="board-ctr">
-    <Card v-for="word in words" :word="word.word" :type="word.type" :isTopFriend="word.is_top_friend" :key="word.id"></Card>
+    <Card
+      v-for="word in words"
+      :word="word.word"
+      :type="word.type"
+      :isTopFriend="word.is_top_friend"
+      :key="word.id"
+      >
+    </Card>
   </div>
 </template>
 
