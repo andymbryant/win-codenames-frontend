@@ -8,7 +8,7 @@
       </div>
       <div class='clue all_bad'>
         <label for="all_bad">I don't like any of these.</label>
-        <input type="radio" v-model="selectedClue" name="all_bad" value="Terrible Job">
+        <input type="radio" v-model="selectedClue" name="all_bad" value="no_good_clues">
       </div>
 
       <!-- <Clue v-for="clue in clues" :word="clue.word" :key="clue.id"/> -->
