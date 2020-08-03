@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const ROOT_URL = process.env.VUE_APP_FLASK
 
+console.log(`ROOT_URL: ${ROOT_URL}`)
+
 const SHUFFLE_CLUES = false
 const SHUFFLE_WORDS = true
 
