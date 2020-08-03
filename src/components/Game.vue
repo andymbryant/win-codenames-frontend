@@ -3,16 +3,20 @@
   <div v-else class='game-ctr'>
     <div class='title-ctr'>
       <div class='game-title'>You are the Spymaster for the <span class="red-text">Red Team</span>.</div>
-      <div class='game-subtitle'>You want you team to guess the words with the <span class="green-text">green</span> checkmarks.</div>
+      <div class='game-subtitle'>You want your teammates to guess the words with the <span class="green-text">green</span> checkmarks.</div>
     </div>
-    <Board v-if="!loading"/>
-    <ClueSelect v-if="!loading"/>
+    <span v-if="!loading">
+      <Board/>
+      <ClueSelect/>
+      <Status/>
+    </span>
   </div>
 </template>
 
 <script>
 import Loader from '@/components/Loader'
 import Board from '@/components/Board'
+import Status from '@/components/Status'
 import ClueSelect from '@/components/ClueSelect'
 import {mapActions, mapGetters} from 'vuex'
 
@@ -21,7 +25,8 @@ export default {
   components: {
     Loader,
     Board,
-    ClueSelect
+    ClueSelect,
+    Status
   },
   data() {
     return {
@@ -38,9 +43,7 @@ export default {
     this.loading = true
   },
   mounted() {
-    this.fetchGameData()
-      // .then(() => this.fetchClueData({clueId: this.clueId}))
-      .then(() => this.loading = false)
+    this.fetchGameData().then(() => this.loading = false)
   }
 }
 </script>

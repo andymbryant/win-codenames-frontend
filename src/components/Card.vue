@@ -1,7 +1,7 @@
 <template>
   <div :class="cardContainerClass">
     <div :class="cardTextClass">{{word}}</div>
-    <font-awesome-icon class="top-friend-icon" v-if="isTop" icon="check-circle"/>
+    <font-awesome-icon class="top-friend-icon" v-if="isTopFriend" icon="check-circle"/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   props: {
     word: String,
     type: String,
-    isTop: Boolean
+    isTopFriend: Boolean
   },
   computed: {
     cardContainerClass() {
