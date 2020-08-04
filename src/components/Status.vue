@@ -9,7 +9,7 @@ export default {
   name: 'Status',
   computed: {
     reviewCount() {
-      const reviewCount = parseInt(sessionStorage.getItem('codenamesReviewCount'))
+      const reviewCount = parseInt(localStorage.getItem('codenamesReviewCount'))
       return reviewCount ? reviewCount : 0
     },
     gameString() {

@@ -48,7 +48,7 @@ const actions = {
   },
   async submitReview({getters, dispatch}, {selectedClue}) {
     let url = `${ROOT_URL}/create-review/`
-    const reviewerName = sessionStorage.getItem('codenamesReviewerName')
+    const reviewerName = localStorage.getItem('codenamesReviewerName')
     const data = {
       reviewer: reviewerName ? reviewerName : null,
       human_selected: selectedClue,
@@ -67,12 +67,12 @@ const actions = {
     await dispatch('fetchGameData')
   },
   incrementReviewCount() {
-    let reviewCount = parseInt(sessionStorage.getItem('codenamesReviewCount'))
+    let reviewCount = parseInt(localStorage.getItem('codenamesReviewCount'))
     if (!reviewCount) {
       reviewCount = 0
     }
     reviewCount++
-    sessionStorage.setItem('codenamesReviewCount', reviewCount.toString())
+    localStorage.setItem('codenamesReviewCount', reviewCount.toString())
   }
 }
 

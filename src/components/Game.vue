@@ -44,11 +44,11 @@ export default {
     ...mapGetters(['clues', 'isAppLoading']),
     reviewerName: {
       get: function() {
-        let name = sessionStorage.getItem('codenamesReviewerName')
+        let name = localStorage.getItem('codenamesReviewerName')
         return name ? name : ''
       },
       set: function(newValue) {
-        sessionStorage.setItem('codenamesReviewerName', newValue)
+        localStorage.setItem('codenamesReviewerName', newValue)
       }
     }
   },
