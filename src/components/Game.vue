@@ -3,7 +3,7 @@
   <div v-else class='game-ctr'>
     <div class='reviewer-ctr'>
       <label class="reviewer-label" for="reviewerName">What's your name?</label>
-      <input @blur="setName" type="text" name="reviewerName" placeholder="e.g. andyb, lindseym..." v-model="reviewerName">
+      <input type="text" name="reviewerName" placeholder="e.g. andyb, lindseym..." v-model="reviewerName">
     </div>
     <div class='title-ctr'>
       <div class='game-title'>You are the Spymaster for the <span class="red-text">Red Team</span>.</div>
@@ -39,9 +39,6 @@ export default {
   },
   methods: {
     ...mapActions(['fetchGameData', 'fetchClueData']),
-    setName() {
-      sessionStorage.setItem('codenamesReviewerName', this.reviewerName)
-    }
   },
   computed: {
     ...mapGetters(['clues', 'isAppLoading']),
