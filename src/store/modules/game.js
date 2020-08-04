@@ -48,8 +48,9 @@ const actions = {
   },
   async submitReview({getters, dispatch}, {selectedClue}) {
     let url = `${ROOT_URL}/create-review/`
+    const reviewerName = sessionStorage.getItem('codenamesReviewerName')
     const data = {
-      // clues: getters.clues,
+      reviewer: reviewerName ? reviewerName : null,
       human_selected: selectedClue,
       game_id: getters.gameId,
       num_displayed: getters.clues.length,

@@ -22,7 +22,7 @@ export default {
 <style>
   .status-ctr {
     position: absolute;
-    left: 2%;
-    bottom: 2%;
+    left: 1%;
+    bottom: 1%;
   }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <Loader v-if="isAppLoading"></Loader>
   <div v-else class='game-ctr'>
+    <div class='reviewer-ctr'>
+      <label class="reviewer-label" for="reviewerName">What's your name?</label>
+      <input @blur="setName" type="text" name="reviewerName" placeholder="e.g. andyb, lindseym..." v-model="reviewerName">
+    </div>
     <div class='title-ctr'>
       <div class='game-title'>You are the Spymaster for the <span class="red-text">Red Team</span>.</div>
       <div class='game-subtitle'>You want your teammates to guess the words with the <span class="green-text">green</span> checkmarks.</div>
@@ -34,10 +38,22 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchGameData', 'fetchClueData'])
+    ...mapActions(['fetchGameData', 'fetchClueData']),
+    setName() {
+      sessionStorage.setItem('codenamesReviewerName', this.reviewerName)
+    }
   },
   computed: {
-    ...mapGetters(['clueId', 'clues', 'isAppLoading'])
+    ...mapGetters(['clues', 'isAppLoading']),
+    reviewerName: {
+      get: function() {
+        let name = sessionStorage.getItem('codenamesReviewerName')
+        return name ? name : ''
+      },
+      set: function(newValue) {
+        sessionStorage.setItem('codenamesReviewerName', newValue)
+      }
+    }
   },
   created() {
     this.loading = true
@@ -52,6 +68,14 @@ export default {
   .game-ctr {
     width: 100%;
     text-align: center;
+  }
+  .reviewer-ctr {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+  }
+  .reviewer-label {
+    margin-right: 1rem;
   }
   .title-ctr {
     margin: 1rem 0;
