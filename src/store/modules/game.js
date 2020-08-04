@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const ROOT_URL = process.env.VUE_APP_FLASK
 
-const SHUFFLE_CLUES = false
+const SHUFFLE_CLUES = true
 const SHUFFLE_WORDS = true
 
 function sleep(ms) {
