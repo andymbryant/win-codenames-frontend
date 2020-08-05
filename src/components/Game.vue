@@ -13,6 +13,7 @@
       <Board/>
       <ClueSelect/>
       <Status/>
+      <div class='copyright'>© 2020 Andy Bryant</div>
     </span>
   </div>
 </template>
@@ -96,5 +97,11 @@ export default {
   .main-ctr {
     display: flex;
     flex-direction: column;
+  }
+  .copyright {
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+    color: rgb(172, 172, 172);
   }
 </style>
